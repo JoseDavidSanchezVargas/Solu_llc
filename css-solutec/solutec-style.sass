@@ -1,0 +1,1719 @@
+/* Sass Document */
+sass solutec-style.scss solutec-style.css
+	
+$font-p: 'Roboto', sans-serif
+$font-h: 'Roboto', sans-serif
+
+$azul-p: #00468c
+$azul-02: #005fb1
+$azul-03: #003461
+$azul-04: #092640
+$naranja-p: #ff8a00
+$gris-01: #767676
+$gris-02: #f4f4f4
+$gris-03: #cccccc
+
+*
+  position: relative
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-boxt
+  -webkit-tap-highlight-color: transparent
+  outline: 0 !important
+
+body
+  font-family: $font-p
+  font-size: 14px
+  color: $gris-01
+  height: auto !important
+  padding-top: 1px
+  padding-bottom: 1px
+
+@mixin headings($from: 1, $to: 6)
+  @for $i from $from through $to
+    h#{$i}
+      @content
+
+$headings: h1 h2 h3 h4 h5 h6
+
+@include headings()
+  font-family: $font-h
+  margin-bottom: .6em
+  color: $azul-p
+  font-weight: 900
+  line-height: 1em
+
+h1
+  font-size: 28px
+
+h3
+  font-size: 48px
+  line-height: 1em
+
+h4
+  font-size: 21px
+
+h3 + h4,
+h1 + h2
+  font-family: $font-p
+  font-size: 16px
+  color: $gris-01
+  margin-top: -1.5em
+  font-weight: 400
+  line-height: 1.3em
+
+h1 + h2
+  margin-top: -.8em	
+	
+a
+  &:hover
+    color: $naranja-p
+    text-decoration: none
+    background-color: transparent !important
+  &[class*=icon-arrow]
+    display: inline-block
+
+a, button
+  border: none
+  cursor: pointer
+  &:focus,
+  &:active
+    border: none
+    outline: none 
+    box-shadow: none !important
+
+nav
+  font-family: $font-h
+  font-size: 13px
+  background-color: $gris-02
+  & a
+    color: $azul-p
+    padding: 20px 12px
+    display: inline-block
+    font-weight: 700
+    &.active
+      color: $gris-03
+  & li
+    margin-right: 0 !important
+		
+figure
+  margin: 0
+	
+footer
+  border-top: 4px solid $gris-03
+  & h4
+    font-size: 14px
+  & a
+    color: $gris-01
+  & li
+    margin-bottom: 5px
+	
+/* --- HEADER --- */
+header
+  & .logo img
+    height: auto	
+  &.scrolldown
+    background-color: rgba($gris-02,.93)
+	
+/* --- MENU P --- */
+#menu-p-01
+  & a:before
+    content: ""
+    width:  0
+    height: 1px
+    background-color: $azul-p
+    margin: auto
+    position: absolute
+    bottom: 15px
+    left: 0
+    right: 0
+  & .sfHover>a:before
+    width: 40%
+  & ul
+    background-color: $azul-02
+    & *
+      color: white	
+    & a
+      font-size: 14px
+      font-weight: 400
+      text-transform: none
+      padding: 8px 18px
+      &:hover
+        color: $naranja-p
+      &:before
+        display: none
+    & ul
+      background-color: $azul-03
+    & .sfHover
+      background-color: $azul-03
+	
+/* --- SLIDER PRINCIPAL --- */
+.slider-p-01
+  min-height: 500px
+  max-height: 900px
+  overflow: visible
+  & .layer-fondo-01
+    width: 100px
+    height: 100px
+    position: absolute
+    left: 50px 
+    top: 0
+    pointer-events: none
+    & .rombo-01
+      width: 1300px
+      height: 1300px		
+      //background-color: $azul-p
+      position: absolute
+      left: 50%
+      top: 50%
+      transform: translate(-50%, -30%) rotate(45deg)
+      -webkit-transform: translate(-50%, -54%) rotate(45deg)
+      -ms-transform: translate(-50%, -54%) rotate(45deg)
+      opacity: 0
+  & h1
+    font-size: 57px
+    color: $azul-02
+    line-height: 0.9em
+    margin-bottom: 10px	
+  & h2
+    font-size: 17px
+    color: $gris-01
+  & p
+    font-size: 16px
+    margin-bottom: 0px
+  & .cont-info
+  & .layer-00, & .layer-01, & .layer-02, & .layer-03
+    margin: auto
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+    &.layer-00
+      z-index: 0
+    &.layer-01
+      z-index: 1	
+    &.layer-02
+      z-index: 2
+    &.layer-03
+      z-index: 3	
+  & .container
+    max-width: 1400px
+  & .swiper-slide-active
+    & .rombo-01
+      opacity: 1
+  & .swiper-pagination
+    text-align: right
+    margin: auto
+    right: 0
+    bottom: 25px
+    counter-reset: tab
+    & .swiper-pagination-bullet:before
+      content: ""
+      content: "0" counter(tab)
+      counter-increment: tab
+      font-size: 16px
+      display: inline-block
+      margin-right: 5px	
+  & .cont-arrows-01
+    margin: auto
+    bottom: 60px
+    position: absolute
+    left: 0
+    right: 0
+    clear: both	
+    & [class*=swiper-button-]
+      font-size: 40px
+      color: $naranja-p
+      background-color: transparent
+      padding: 0
+      position: relative
+      cursor: pointer
+      &:hover
+        transform: translateX(-10px)
+        -webkit-transform: translateX(-10px)
+        -ms-transform: translateX(-10px)
+      &.swiper-button-next:hover
+        transform: translateX(10px)	
+        -webkit-transform: translateX(10px)	
+        -ms-transform: translateX(10px)	
+
+/* --- ITEMS --- */
+.cont-item-01
+  & h2
+    font-size: 25px
+    margin-bottom: 5px
+  & h3
+    font-size: 18px
+    color: $gris-01
+    font-weight: 600
+  & figure
+    min-height: 170px
+  & .photo-producto
+    width: auto
+    max-width: 250px
+    max-height: 170px
+    margin: auto
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+  & .rombo-blue-01
+    width: 150px !important
+    height: 150px !important
+    + .rombo-shadow-01
+      width: 150px !important
+      height: 150px !important		
+		
+/* --- ARTICLES BODY --- */
+.article-style-01
+  & figure
+    height: 500px
+  & .body
+    max-height: 400px
+	
+.article-style-02
+  & figure
+    max-height: 400px
+    min-height: 100%
+  & .body
+    padding-bottom: 70px
+    & h4
+      font-size: 18px
+      font-weight: 300	
+    & h3
+      font-size: 26px
+      font-weight: 700	
+    & h2
+      font-size: 25px
+  & .txt-body
+    max-height: 200px
+	
+.article-style-03
+  & h2
+    font-size: 20px
+    margin-top: 2rem
+  & .text-p
+    font-size: 17px
+	
+.article-style-04
+  & h1
+    font-size: 45px
+  & h3
+    font-size: 25px
+    margin-top: 2em
+    margin-bottom: 1.4em	
+  & .icon
+    margin-top: 6em
+  & .icon + h3
+    margin-top: 1em	
+  & table, & .table
+    margin-top: 25px
+    margin-bottom: 25px
+  & ul
+    padding-left: 0
+    & li
+      list-style: none
+      padding-left: 20px
+      margin-bottom: 5px
+      &:before
+        content: ""
+        width: 8px
+        height: 8px
+        background-color: $azul-p
+        position: absolute
+        top: 7px
+        left: 0
+        transform: rotate(45deg)
+        -webkit-transform: rotate(45deg)
+        -ms-transform: rotate(45deg)	
+		
+/* AGENDA */
+.cont-info-agenda-01
+  & .body
+    padding-bottom: 90px
+    & h5
+      font-size: 17px
+    & .btn-primary
+      color: $naranja-p
+      font-size: 16px
+	
+/* --- NEWS --- */
+.cont-bignews-01
+  & .body
+    max-height: 200px
+  & h1
+    font-size: 23px
+    margin-top: 10px
+    line-height: 1em
+  & figure
+    height: 417px
+    border-radius: 2px
+    overflow: hidden
+  & a:hover img
+    transform: scale(1.03)
+    -webkit-transform: scale(1.03)		
+    -ms-transform: scale(1.03)		
+	
+.cont-samllnews-01
+  & .body
+    max-height: 100px		
+  & h1
+    font-family: $font-p		
+    font-size: 16px
+    color: white
+    font-weight: 300
+    margin-top: 10px
+    padding-right: 5px
+    position: absolute
+    left: 10px
+    bottom: 0px
+    z-index: 2
+  & figure
+    height: 200px 
+    border-radius: 2px
+    overflow: hidden
+    &:before
+      content: ""
+      width: 100%
+      height: 100%	
+      background: rgba(0,0,0,0)
+      background: -moz-linear-gradient(top, rgba(0,15,30,0) 0%, rgba(0,15,30,.8) 100%)
+      background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,15,30,0)), color-stop(100%, rgba(0,15,30,.8)))
+      background: -webkit-linear-gradient(top, rgba(0,15,30,0) 0%, rgba(0,15,30,.8) 100%)
+      background: -o-linear-gradient(top, rgba(0,15,30,0) 0%, rgba(0,15,30,.8) 100%)
+      background: -ms-linear-gradient(top, rgba(0,15,30,0) 0%, rgba(0,15,30,.8) 100%)
+      background: linear-gradient(to bottom, rgba(0,15,30,0) 0%, rgba(0,15,30,.8) 100%)
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 )
+      position: absolute
+      z-index: 1
+      opacity: .9
+  & p
+    margin-top: 12px
+  & a:hover img
+    transform: scale(1.03)
+    -webkit-transform: scale(1.03)
+    -ms-transform: scale(1.03)
+  & a:hover figure:before
+    opacity: 1
+
+/* --- LIST --*/
+.cont-list-01
+  & h2
+    font-size: 18px
+    font-weight: 600
+  & div:nth-child(odd)
+    text-align: right	
+  & div:first-child
+    counter-reset: tab
+  & div h2:before
+    content: ""
+    content: counter(tab) "." 
+    counter-increment: tab
+    display: inline-block
+    margin-right: 5px
+	
+/* --- BTN --- */
+.btn-primary, .btn-p-orange-01
+  font-family: $font-h
+  font-size: 20px
+  color: $naranja-p
+  font-weight: 900
+  line-height: 1em
+  text-transform: uppercase
+  background-color: transparent
+  margin-top: 20px
+  margin-bottom: 40px
+  padding-right: 50px
+  display: inline-block
+  &:before
+    content: ""
+    width: 40px
+    height: 2px
+    margin: auto
+    position: absolute
+    left: calc(100% - 40px)
+    top: 0
+    bottom: 0    
+    background-color: $naranja-p
+  &:hover
+    color: $naranja-p
+    background-color: transparent
+    padding-right: 0
+    padding-left: 50px
+  &:hover:before
+    left: 0
+  &:last-child
+    margin-bottom: 0
+  &.btn-p-orange-01
+    color: white
+    background-color: $naranja-p !important
+    padding: 20px 40px
+    border-radius: 4px    
+    box-shadow: rgba(4, 7, 13, 0.2) 0px 2px 20px, rgba(4, 7, 13, 0.2) 0px 4px 4px, rgba(4, 7, 13, 0.1) 0px 8px 8px, rgba(4, 7, 13, 0.1) 0px 16px 16px
+    -webkit-box-shadow: rgba(4, 7, 13, 0.2) 0px 2px 20px, rgba(4, 7, 13, 0.2) 0px 4px 4px, rgba(4, 7, 13, 0.1) 0px 8px 8px, rgba(4, 7, 13, 0.1) 0px 16px 16px	
+    &:before
+      display: none
+    &:hover, &:focus, &:active
+      transform: scale(.98)
+      box-shadow: rgba(4, 7, 13, 0.2) 0px 1px 1px, rgba(4, 7, 13, 0.2) 0px 2px 2px, rgba(4, 7, 13, 0.1) 0px 4px 4px, rgba(4, 7, 13, 0.1) 0px 8px 8px
+      -webkit-box-shadow: rgba(4, 7, 13, 0.2) 0px 1px 1px, rgba(4, 7, 13, 0.2) 0px 2px 2px, rgba(4, 7, 13, 0.1) 0px 4px 4px, rgba(4, 7, 13, 0.1) 0px 8px 8px	
+
+.btn-menu-01
+  line-height: 0
+  text-align: right
+  width: 50px
+  height: 45px
+  padding: 0 10px
+  background-color: rgba(48,48,48,.2)
+  right: 15px
+  border: none
+  -webkit-border-radius: 4px
+  -moz-border-radius: 4px
+  border-radius: 4px
+  & div
+    width: 100%
+    height: 3px
+    margin-top: 3px
+    margin-bottom: 3px
+    background-color: white
+    display: inline-block
+    -webkit-border-radius: 30px
+    -moz-border-radius: 30px
+    border-radius: 30px
+	
+.btn-rombo-01
+  width: 200px
+  text-align: center
+  margin: auto
+  display: block
+  padding: 30px 25px
+  & .title
+    width: 100%
+    font-size: 20px
+    color: white
+    position: absolute
+    left: 0
+    top: 50%
+    transform: translateY(-50%) scale(1)
+    -webkit-transform: translateY(-50%) scale(1) 
+    -ms-transform: translateY(-50%)	scale(1) 
+    z-index: 2
+  & .rombo-01
+    width: 150px
+    height: 150px
+    background-color: $azul-p
+    display: inline-block
+    transform: rotate(45deg) scale(1)
+    -webkit-transform: rotate(45deg) scale(1)
+    -ms-transform: rotate(45deg) scale(1)	
+  &:hover
+    & .rombo-01
+      background-color: $azul-02
+      transform: rotate(45deg) scale(.88)
+      -webkit-transform: rotate(45deg) scale(.88)
+      -ms-transform: rotate(45deg) scale(.88)		
+
+	
+.btn-01
+  width: 45px
+  height: 45px
+  padding: 5px
+  background-color: $azul-02
+  display: block
+  border: none
+  z-index: 100
+  -webkit-border-radius: 4px
+  -moz-border-radius: 4px
+  border-radius: 4px
+  & img
+    width: 100%
+    height: auto
+
+.btn-02
+  font-size: 28px
+  background-color: transparent
+  display: inline-block
+  -webkit-border-radius: 4px
+  -moz-border-radius: 4px
+  border-radius: 4px
+
+.btn-icon-01
+  color: $gris-01
+  font-weight: 900
+  background-color: transparent
+  display: inline-block
+  -webkit-border-radius: 4px
+  -moz-border-radius: 4px
+  border-radius: 4px
+  & .icon
+    width: 90px
+    height: 90px	
+    background-color: $azul-p
+    margin: auto
+    margin-bottom: 10px
+    display: block
+    padding: 15px
+    -webkit-border-radius: 4px
+    -moz-border-radius: 4px
+    border-radius: 4px
+  &:hover .icon
+    background-color: $azul-03
+	
+.btn-fx-scale-01
+  display: inline-block
+  &:hover
+    & .icon
+      transform: scale(1.2) 
+      -webkit-transform: scale(1.2) 	
+      -ms-transform: scale(1.2) 	
+	
+
+  /* --- PANELS--- */
+.compress-cont-01
+  width: 100%
+  max-width: 100%
+  height: 100%
+  text-align: center
+  background-color: $gris-02
+  padding-top: 65px
+  padding-bottom: 50px
+  position: fixed
+  top: 0
+  left: 0
+  overflow: auto
+  z-index: 10000
+  &.close-on
+    transform: translateX(-100%)
+    -webkit-transform: translateX(-100%)	
+    -ms-transform: translateX(-100%)
+  & .pagination
+    width: 100%
+    background-color: white
+    margin: 0
+    position: fixed
+    left: 0
+    bottom: 0
+    z-index: 100
+	
+/* --- PAGINATION --- */
+.pagination
+  & a
+    padding: 10px
+  & [class*=icon-arrow-]
+    font-size: 22px
+	
+/* --- OTHERS --- */
+.overlay-01
+  width: 100%
+  height: 100%
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 1
+  background-color: black
+  opacity: .3
+  &.close-on
+    opacity: 0
+    visibility: hidden
+  &.open-on
+    opacity: .4
+    visibility: visible	
+
+/* --- OWL --- */
+.owl-style-01		
+  .owl-nav
+    position: absolute
+    bottom: 0
+    white-space: nowrap	
+    & button
+      width: 76px
+      height: 76px
+      font-size: 35px
+      color: $naranja-p !important
+      text-align: right
+      background-color: $gris-02 !important
+      & span
+        display: block	
+      &.owl-next
+        text-align: left			
+        &:hover span         
+          transform: translateX(20%)
+          -webkit-transform: translateX(20%)			
+          -ms-transform: translateX(20%)			
+      &:hover span
+        transform: translateX(-20%)
+        -webkit-transform: translateX(-20%)
+        -ms-transform: translateX(-20%)
+		
+.owl-style-02
+  overflow: hidden
+  //margin-left: 90px
+  //margin-right: 90px
+  & .icons:hover
+    transform: scale(1.2) 
+    -webkit-transform: scale(1.2) 	
+    -ms-transform: scale(1.2) 	
+  /*& .container
+    padding-left: 130px
+    padding-right: 130px*/
+  & .owl-stage
+    margin: auto
+  & .owl-stage-outer
+    overflow: visible
+  /*& .owl-item
+    opacity: .5
+    &.active
+      opacity: 1*/
+  & .owl-nav
+    width: 96vw
+    font-size: 40px
+    position: absolute
+    left: 50%
+    top: 35%
+    transform: translate(-50%, -50%)
+    -webkit-transform: translate(-50%, -50%)
+    -ms-transform: translate(-50%, -50%)
+    pointer-events: none
+    & button
+      float: left
+      pointer-events: auto
+      &.owl-next
+        float: right
+        &:hover
+          transform: translateX(30%)
+          -webkit-transform: translateX(30%)			
+          -ms-transform: translateX(30%)			
+      &:hover
+        color: $naranja-p
+        transform: translateX(-30%)	
+        -webkit-transform: translateX(-30%)		
+        -ms-transform: translateX(-30%)
+  /*& .btn-rombo-01
+    margin-left: 20px
+    margin-right: 20px*/	
+
+.owl-ctrl-l-15
+  & .owl-nav
+    left: calc(50% - 15px)
+	
+.owl-ctrl-l-92
+  & .owl-nav
+    left: calc(50% - 92px)	
+
+.owl-ctrl-l-116
+  & .owl-nav
+    left: calc(116% - 92px)	
+
+.owl-ctrl-r-116
+  & .owl-nav
+    right: calc(116% - 92px)	
+	
+.owl-ctrl-r
+  & .owl-nav
+    right: 0		
+	
+.owl-ctrl-b--25
+  & .owl-nav
+    bottom: -25px
+	
+.owl-h-01
+  min-height: 540px
+  max-height: 540px
+  & .owl-stage-outer
+
+.owl-vcenter-item
+  & .owl-item
+    float: none
+    display: inline-block
+    vertical-align: middle
+	
+/* --- GALLERY --- */
+.gallery-style-01	
+  padding-bottom: 0px
+  & .ms-thumb-frame
+    width: 160px !important
+    margin: 0 !important
+  & .ms-thumb-ol
+    width: 100% !important
+    height: 100%
+  & .ms-thumb-list
+    position: relative
+  &.hidden-thumb
+    & .ms-thumb-list
+      display: none
+	
+.gallery-owl-01
+  & .body
+    $width: 400px
+    max-width: $width
+    height: $width
+    margin: auto
+    & .owl-carousel
+      top: 50%
+      transform: translateY(-50%)
+      -webkit-transform: translateY(-50%)
+      -ms-transform: translateY(-50%)
+  & .rombo-blue-01
+    width: 95% !important
+    height: 95% !important
+		
+.thumb-img-01
+  height: 110px
+  background-color: $azul-p
+  display: block
+  &:hover
+    background-color: $azul-p !important
+    & img
+      transform: scale(1.3)
+	
+	
+/* --- STICK --- */
+.obj-stick-01
+  width: 95vw !important
+  height: 100vh
+  margin: auto
+  position: absolute
+  left: 0 !important
+  right: 0
+  & .cont-nav
+    font-size: 35px
+    top: 50%
+    transform: translateY(-50%) !important
+    -webkit-transform: translateY(-50%) !important	
+    -ms-transform: translateY(-50%) !important	
+.obj-stick-02
+  height: 100vh
+  margin: auto	
+  & .body
+    top: 50%
+    transform: translateY(-50%) !important	
+    -webkit-transform: translateY(-50%) !important	
+    -ms-transform: translateY(-50%) !important
+	
+/*--- TILT ---*/
+.js-tilt, .js-tilt-02
+  transform-style: preserve-3d
+  -webkit-transform-style: preserve-3d
+  -ms-transform-style: preserve-3d
+  transform: perspective(300px)
+  -webkit-transform: perspective(300px)
+  -ms-transform: perspective(300px)
+  & .tilt-obj-01
+    margin: auto
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    transform: translateZ(30px)
+    -webkit-transform: translateZ(30px)
+    -ms-transform: translateZ(30px)
+  & .tilt-obj-01-b
+    margin: auto
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0	
+    transform: translateZ(60px)	
+    -webkit-transform: translateZ(60px)	
+    -ms-transform: translateZ(60px)	
+	
+	
+/* --- TABS ---*/
+.r-tabs
+  position: relative
+  .r-tabs-nav
+    margin: 0
+    padding: 0
+    border-bottom: 1px solid $gris-03	
+    .r-tabs-tab
+      position: relative
+      display: inline-block
+      margin: 0
+      list-style: none
+      padding: 0
+      &:before
+        display: none	
+    .r-tabs-anchor
+      display: inline-block
+      padding: 8px
+      font-size: 14px
+      font-weight: bold
+    .r-tabs-state-active .r-tabs-anchor
+      color: white
+      background-color: $azul-p
+      &:hover, &:focus
+        background-color: $azul-p !important
+  .r-tabs-panel
+    padding: 15px
+    display: none
+    & .r-tabs-nav
+      margin-left: -15px	
+      margin-right: -15px		
+  .r-tabs-accordion-title
+    display: none
+  .r-tabs-panel.r-tabs-state-active
+    display: block	
+  .r-tabs-accordion-title
+    .r-tabs-anchor
+      text-align: center
+      display: block
+      padding: 10px
+      font-size: 14px
+      font-weight: bold
+      border-top: 1px solid $gris-03	
+    &.r-tabs-state-active .r-tabs-anchor
+      color: white
+      background-color: $azul-p !important
+
+
+/* Accordion responsive breakpoint
+@media only screen and (max-width: 576px)
+  .r-tabs
+    .r-tabs-nav
+      display: none
+    .r-tabs-accordion-title
+      display: block
+    & .r-tabs-panel
+      background-color: white	
+
+	
+/* --- MAILCHIMP FORM ---*/
+#mc_embed_signup
+  & input
+    padding: 15px
+    border: 1px solid $gris-01
+  & #mce-responses
+    font-size: 17px
+    & a
+      color: $naranja-p
+      display: block
+  & #mce-success-response
+    color: #ffed00
+
+/* --- COOKIES ---
+.notice-cookies
+  width: 100%
+  color: white
+  font-size: 15px
+  line-height: 1rem
+  line-height: 1em
+  background: #000
+  position: fixed
+  bottom: 0
+  left: 0
+  z-index: 1000
+  .cookies-mensj
+    padding-top: 15px
+    padding-bottom: 15px
+  .btn-blue-01
+    font-size: 17px
+    padding: 10px 20px !important
+  a
+    color: white
+    font-size: 17px
+    padding: 10px 20px !important
+    color: #3fcee6	
+
+/* --- IMG --- */
+.cropcenter-img
+  overflow: hidden
+  &>img
+    width: 100%
+    height: 100%
+    object-fit: cover		
+	
+/* --- BACKGROUNDS --- */
+.bgc-azul-01
+  //background-color: $azul-p
+  & *
+    color: white
+  &:after, &:before
+    content: ""
+    width: 100%
+    height: 1300px
+    background-image: url('../images-solutec/svg/bg/bg-corte-v-blue-01.svg')
+    background-size: 101% auto
+    background-position: center bottom
+    background-repeat: no-repeat
+    background-color: white
+    position: absolute
+    left: 0
+    top: -900px
+  &:after
+    height: 100%
+    background-color: $azul-p
+    background-image: none
+    left: 0
+    top: 400px
+
+.bgc-azul-02
+  background-color: $azul-p
+  & *
+    color: white
+
+.bgc-azul-04
+  background-color: rgba($azul-04, .95)
+  & *
+    color: white
+
+
+.bgc-blanco-01
+  background-color: white
+  & *
+    color: $gris-01
+  @include headings()
+    color: $azul-p
+  & .owl-nav
+    & button span
+      color: $naranja-p !important		
+
+.bgc-gris-02
+  background-color: $gris-02
+  & *
+    color: $gris-01
+  @include headings()
+    color: $azul-p
+  & .owl-nav
+    & button
+      background-color: white !important
+      & span
+        color: $naranja-p !important		
+
+/* --- COLOR --- */
+.text-blue-01
+  color: $azul-p
+
+.text-gris-01
+  color: $gris-01
+
+/* --- HEIGHT --- */
+.vh-100
+  height: 100vh
+
+/* --- FONT SIZE ---*/
+.f-size-18
+  font-size: 18px
+
+/*--- MARGIN --- */
+.mt-130
+  margin-top: 130px !important
+
+.mb-130
+  margin-bottom: 130px !important
+
+.mt--30
+  margin-top: -30px
+
+.mb--130
+  margin-bottom: -130px
+
+.mb--30
+  margin-bottom: -30px
+
+/* --- POSITION --- */
+.r-0
+  right: 0
+
+.b-0
+  bottom: 0
+
+/* --- INDEX --- */
+.z-index-2
+  z-index: 2
+
+.z-index-3
+  z-index: 3
+
+/* --- OVERFLOW ---*/
+.overflow-hidden
+  overflow: hidden
+
+/* --- OTHERS --- */
+.pointer-events-none
+  pointer-events: none
+
+.pointer-events-auto
+  pointer-events: auto
+
+/* --- FORMS --- */
+::-webkit-input-placeholder 
+  color: white
+
+::-moz-placeholder 
+  color: white
+
+::-ms-input-placeholder 
+  color: white
+
+::-moz-placeholder 
+  color: white
+
+input, textarea
+  width: 100%
+  max-height: 160px
+  color: white
+  padding: 13px 0px
+  background: transparent
+  border: none
+  border-bottom: 1px solid $azul-03
+  &:focus
+    border-color: rgba(255,255,255,.8)
+
+/* CONTACTO */
+label[id*=_error]
+  position: absolute
+  font-size: 13px
+  color: #666
+  width: auto
+  z-index: 10
+  visibility: hidden
+  right: 0
+  background: #e6e6e6
+  padding: 8px 10px
+  text-align: center
+  -webkit-border-radius: 2px
+  -moz-border-radius: 2px
+  border-radius: 2px
+
+label[id*=_error]:before
+  position: absolute
+  content: ""
+  width: 0px
+  height: 0px
+  bottom: -7px
+  margin: auto
+  right: 0px
+  border-style: solid
+  border-width: 8px 5px 0 5px
+  border-color: #e6e6e6 transparent transparent transparent
+
+.show_error
+  -webkit-animation-name: show_error
+  animation-name: show_error
+  -webkit-animation-duration: .5s
+  animation-duration: .5s
+  -webkit-animation-fill-mode: both
+  animation-fill-mode: both
+
+@-webkit-keyframes show_error
+  0%
+    visibility: visible
+    opacity: 0
+    top: 0
+  100%
+    visibility: visible
+    opacity: 1
+    top: -30px
+
+@keyframes show_error
+  0%
+    visibility: visible
+    opacity: 0
+    top: 0
+  100%
+    visibility: visible
+    opacity: 1
+    top: -30px
+
+.cont_botonenviar_contacto
+  width: 100%
+  margin: 20px 0 0
+  & button
+    margin-top: 0
+
+#message
+  width: 100%
+  text-align: center
+  & h2
+    width: 100%
+    font-size: 28px
+    margin-bottom: 15px
+  & p
+    font-size: 17px
+    margin-top: 0
+
+.enviando-mensaje
+  cursor: default
+  pointer-events: none
+  -webkit-transform: skew(0deg, 0deg)
+  -moz-transform: skew(0deg, 0deg)
+  -o-transform: skew(0deg, 0deg)
+  -ms-transform: skew(0deg, 0deg)
+  transform: skew(0deg, 0deg)
+
+.enviando-mensaje:after
+  content: "Enviando..."
+  width: 100%
+  height: 100%
+  color: white
+  top: 0
+  left: 0
+  display: block
+  z-index: 5
+  animation: show_enviando .3s ease-in-out 1
+  -webkit-animation: show_enviando .3s ease-in-out 1
+	
+.enviando-mensaje>span
+  display: none
+
+/* --- BOOSTTRAP --- */
+.equal 
+  display: -webkit-box
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  flex-wrap: wrap
+
+/* --- DECO --- */
+.border-01
+  border-left: solid 1px $gris-03	
+  border-right: solid 1px $gris-03
+  border-bottom: solid 1px $gris-03
+  & > .title
+    font-size: 16px
+    font-weight: 300	
+    white-space: nowrap	
+    top: -9px
+    display: -webkit-box!important
+    display: -ms-flexbox!important
+    display: flex!important	
+    -webkit-box-align: center!important
+    -ms-flex-align: center!important
+    align-items: center!important	
+    &:before, &:after
+      content: ""
+      width: 100%
+      height: 1px
+      display: inline-block
+      background-color: $gris-03
+
+.rombo-white-02, .rombo-white-03, .rombo-blue-01
+  width: 1300px
+  height: 1300px		
+  background-color: white
+  position: absolute
+  left: 50%
+  z-index: 2
+  transform: translateX(-50%) rotate(45deg)
+  -webkit-transform: translateX(-50%) rotate(45deg)	
+  -ms-transform: translateX(-50%) rotate(45deg)	
+  &.rombo-white-02
+    margin: auto
+    left: 50%
+    right: 0
+    + .rombo-shadow-01
+      margin: auto
+      left: 50%
+      right: 0	
+  &.rombo-white-03
+    margin: auto
+    left: auto
+    right: -52%
+    transform: rotate(45deg)
+    -webkit-transform: rotate(45deg)
+    -ms-transform: rotate(45deg)	
+    + .rombo-shadow-01
+      margin: auto
+      right: -54%
+      left: auto
+      transform: translateY(-5%) rotate(45deg)
+      -webkit-transform: translateY(-5%) rotate(45deg)
+      -ms-transform: translateY(-5%) rotate(45deg)
+  &.rombo-blue-01
+    width: 460px
+    height: 460px		
+    background-color: $azul-p
+    top: 50%
+    transform: translate(-50%, -50%) rotate(45deg)
+    -webkit-transform: translate(-50%, -50%) rotate(45deg)
+    -ms-transform: translate(-50%, -50%) rotate(45deg)
+  &.rombo-blue-01 + .rombo-shadow-01
+    width: 550px
+    height: 550px
+    top: 50%
+    transform: translate(-50%, -50%) rotate(45deg)
+    -webkit-transform: translate(-50%, -50%) rotate(45deg)
+    -ms-transform: translate(-50%, -50%) rotate(45deg)		
+  + .rombo-shadow-01
+    width: 1350px
+    height: 1350px		
+    position: absolute
+    left: 50%
+    z-index: 1
+    opacity: .08
+    transform: translateX(-50%) translateY(-5%) rotate(45deg)
+    -webkit-transform: translateX(-50%) translateY(-5%) rotate(45deg)
+    -ms-transform: translateX(-50%) translateY(-5%) rotate(45deg)		
+    background: rgba(0,0,0,1)
+    background: -moz-linear-gradient(-45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%)
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(0,0,0,1)), color-stop(50%, rgba(0,0,0,0)), color-stop(100%, rgba(0,0,0,1)))
+    background: -webkit-linear-gradient(-45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%)
+    background: -o-linear-gradient(-45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%)
+    background: -ms-linear-gradient(-45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%)
+    background: linear-gradient(135deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 )	
+	
+.esquina-lt-01, .esquina-rt-01, .esquina-lb-01, .esquina-rb-01
+  position: absolute
+  top: 0
+  left: 0
+  &.esquina-rt-01
+    right: 0
+    left: inherit
+  &.esquina-lb-01
+    position: fixed	
+    top: inherit
+    bottom: 0		
+  &.esquina-rb-01
+    position: fixed
+    bottom: 0
+    right: 0
+    left: inherit
+  &.esquina-rb-01
+    top: inherit
+    bottom: 0
+    right: 0
+    left: inherit	
+
+.deco-text-lv-01
+  height: 100%
+  font-size: 15px
+  color: $gris-03
+  text-align: center
+  font-weight: 300
+  margin: 0
+  position: fixed
+  left: 0
+  top: 50%
+  z-index: 30
+  writing-mode: vertical-lr
+  -webkit-writing-mode: vertical-lr
+  -ms-writing-mode: vertical-lr
+  transform: translateY(-50%) rotate(180deg)
+  -webkit-transform: translateY(-50%) rotate(180deg)
+  -ms-transform: translateY(-50%) rotate(180deg)
+  & span
+    display: inline-block
+    padding-top: 10px
+    padding-bottom: 10px
+
+.social-link-01
+  position: fixed
+  top: 100px
+  right: 0
+  z-index: 30
+  & li
+    margin-top: 3px
+    margin-bottom: 3px
+	
+	
+/* TRANSITION */
+header,
+a,
+button,
+a img,
+.slider-p-01 .rombo-01,
+.cont-bignews-01 img,
+.cont-samllnews-01 img,
+.cont-samllnews-01 figure:before,
+#menu-p-01 a:before,
+.owl-nav span,
+.btn-primary:before,
+.menu-lg-01,
+.compress-cont-01,
+[class*=overlay-],
+label.error,
+.obj-stick-02 .body,
+.btn-icon-01 .icon,
+.btn-rombo-01 .title,
+.btn-rombo-01 .rombo-01,
+.owl-style-02 .icons,
+.btn-fx-scale-01 .icon
+  -webkit-transition: all 400ms cubic-bezier(0.520, 0.005, 0.000, 0.995)
+  -moz-transition: all 400ms cubic-bezier(0.520, 0.005, 0.000, 0.995)
+  -o-transition: all 400ms cubic-bezier(0.520, 0.005, 0.000, 0.995)
+  transition: all 400ms cubic-bezier(0.520, 0.005, 0.000, 0.995)
+  /* custom */
+  -webkit-transition-timing-function: cubic-bezier(0.520, 0.005, 0.000, 0.995)
+  -moz-transition-timing-function: cubic-bezier(0.520, 0.005, 0.000, 0.995)
+  -o-transition-timing-function: cubic-bezier(0.520, 0.005, 0.000, 0.995)
+  transition-timing-function: cubic-bezier(0.520, 0.005, 0.000, 0.995)	
+
+/* ANIMATION */
+.animate
+  visibility: hidden
+
+.sr-bt
+  animation-name: sr-bt
+
+.sr-lr
+  animation-name: sr-lr
+
+
+@keyframes sr-bt 	
+  0%
+    transform: translateY(50px) scale(.95)
+    opacity: 0  
+  100%
+    transform: translateY(0px) scale(1)
+    opacity: 1  
+
+@-webkit-keyframes sr-bt 	
+  0%
+    -webkit-transform: translateY(50px) scale(.95)
+    opacity: 0  
+  100%
+    -webkit-transform: translateY(0px) scale(1)
+    opacity: 1 
+
+@keyframes sr-lr 	
+  0%
+    transform: translateX(-50px)
+    opacity: 0  
+  100%
+    transform: translateX(0px)
+    opacity: 1  
+
+@-webkit-keyframes sr-lr 	
+  0%
+    -webkit-transform: translateX(-50px)
+    opacity: 0  
+  100%
+    -webkit-transform: translateX(0px)
+    opacity: 1  
+
+
+
+/* --------- RESPONSIVE -------------*/
+@media (min-width: 1200px)
+  .container 
+    max-width: 1220px	
+		
+@media (max-width: 1130px) 
+	
+  nav
+    & a
+      padding: 20px 10px
+
+  /* --- SLIDER PRINCIPAL --- */
+  .slider-p-01
+    & .layer-fondo-01
+      & .rombo-01
+        width: 1300px
+        height: 1300px		
+        left: 0
+        top: 0
+        transform: translate(-55%, -30%) rotate(45deg)
+        -webkit-transform: translate(-55%, -60%) rotate(45deg)
+        -ms-transform: translate(-55%, -60%) rotate(45deg)
+		
+  /*--- GALLERY --- */	
+  .gallery-owl-01
+    & .rombo-blue-01
+      width: 82% !important
+      height: 82% !important	
+    & .rombo-shadow-01
+      width: 95% !important
+      height: 95% !important			
+		
+		
+		
+/*------------------------*/	
+@media (max-width: 990px)
+		
+  /* --- MENU RESPONSIVE --- */
+  .menu-lg-01
+    max-width: 280px
+    height: 100%
+    text-align: center
+    background-color: $azul-p
+    position: fixed
+    top: 0
+    right: 0
+    overflow: auto
+    &.close-on
+      transform: translateX(100%)
+      -webkit-transform: translateX(100%)	
+      -ms-transform: translateX(100%)		
+    & li
+      width: 100%
+    & a
+      color: white
+    & .sf-menu ul
+      position: relative
+      left: 0
+	
+  /* --- SLIDER PRINCIPAL --- */
+  .slider-p-01
+    & .layer-fondo-01
+      & .rombo-01
+        width: 1200px
+        height: 1200px	
+    & .cont-arrows-01
+      margin-top: 20px
+      bottom: 0px
+      position: relative
+    & .cont-info
+      text-shadow: -1px -1px 1px #ffffff, -1px 1px 1px #ffffff, 1px -1px 1px #ffffff, 1px 1px 1px #ffffff
+
+  /* --- ARTICLES BODY --- */
+  .article-style-01
+    & figure
+      height: 350px
+    & .body
+      max-height: 300px	
+	
+  /* AGENDA */
+  .cont-info-agenda-01
+    & .body
+      padding-bottom: 0px
+	
+  /* --- NEWS --- */
+  .cont-bignews-01
+    & figure
+      height: 300px	
+	
+  .social-link-01
+    top: 0px
+    margin-right: 0 !important
+    padding-bottom: 15px
+
+
+  /* --- OWL --- */	
+  /*.owl-style-02 .container 
+    padding-left: 50px
+    padding-right: 50px*/
+	
+  /* --- OWL --- */
+  .owl-md-style-01
+    .owl-nav
+      position: relative
+      & button
+        width: 50%
+        height: 45px
+        font-size: 24px
+
+  .owl-md-ctrl-l-0 .owl-nav
+    left: 0
+
+  /* --- STICK --- */
+  .obj-stick-02
+    & .body
+      top: 0%
+      transform: translateY(0%) !important	
+      -webkit-transform: translateY(0%) !important	
+      -ms-transform: translateY(0%) !important
+	
+  /* --- HEIGHT  --- */
+  .height-md-300px
+    height: 300px !important
+	
+  .height-lg-auto
+    height: auto	
+	
+  /* --- POSITION ---*/
+  .position-md-relative
+    position: relative !important	
+	
+  /* --- DECO --- */
+  .esquina-lt-01, .esquina-rt-01, .esquina-lb-01, .esquina-rb-01
+    & img
+      width: 250px
+      height: auto	
+
+  /* --- CONTAINER --- */
+  .container-lg-100
+    max-width: 100%
+	
+  /*--- MARGIN --- */
+  .mt-lg-70
+    margin-top: 70px !important	
+	
+  .mt-lg-0
+    margin-top: 0px !important		
+
+	
+/*-------------------------*/
+@media (max-width: 760px)
+	
+  body
+    font-size: 12px
+	
+  h1
+    font-size: 24px	
+
+  h3
+    font-size: 38px
+	
+  h3 + h4
+    margin-top: -10px
+	
+  header
+    & .logo img
+      width: 125px
+		
+  /* --- SLIDER PRINCIPAL --- */
+  .slider-p-01 	
+    & .layer-fondo-01
+      left: -70px 
+      & .rombo-01
+        width: 800px
+        height: 800px	
+    & h1
+      font-size: 28px
+    & h2, & p
+      font-size: 14px
+
+	
+  /* --- HEIGHT --- */
+  .height-sm-auto
+    height: auto !important
+	
+  /* --- NEWS --- */
+  .cont-bignews-01
+    & .body
+      max-height: 150px
+    & h1
+      font-size: 18px
+      line-height: 1.2em
+    & figure
+      height: 180px		
+	
+  .cont-samllnews-01
+    & .body
+      max-height: 80px		
+    & h1
+      font-size: 14px
+    & figure
+      height: 120px
+	
+  /* --- ARTICLES BODY --- */
+  .article-style-02
+    & figure
+      height: 200px
+      min-height: auto	
+    & .body
+      padding-bottom: 10px	
+	
+  .article-style-04
+    & h1
+      font-size: 31px
+    & h3
+      font-size: 22px
+      margin-top: 2em
+      margin-bottom: 1em	
+    & .icon
+      margin-top: 3em
+
+	
+  /*--- MARGIN --- */
+  .mt-md-70
+    margin-top: 70px !important
+	
+  .mt-md-0
+    margin-top: 0px !important	
+
+  .mb-md-70
+    margin-bottom: 70px	!important
+	
+  /* --- BTN --- */
+  .btn-primary
+    font-size: 17px
+    margin-top: 13px
+    margin-bottom: 30px	
+	
+  .btn-menu-01
+    width: 35px
+    height: 33px
+    padding: 0 8px
+    right: 10px
+    & div
+      margin-top: 2px
+      margin-bottom: 2px
+	
+  /* --- OWL --- */
+  .owl-sm-style-01
+    .owl-nav
+      position: relative
+      & button
+        width: 50%
+        height: 35px
+        font-size: 24px	
+		
+  .owl-sm-style-02
+    .owl-nav
+      position: relative
+      & button
+        width: 50px
+        height: 50px
+        font-size: 24px			
+		
+  .owl-sm-ctrl-l-0 .owl-nav
+    left: 0	
+	
+  .owl-sm-ctrl-b-0
+    & .owl-nav
+      bottom: 0px	
+	
+  /* --- GALERIAS ---*/
+  .thumb-img-01
+    height: 80px
+	
+  /* --- DECO --- */
+  .esquina-lt-01, .esquina-rt-01, .esquina-lb-01, .esquina-rb-01
+    & img
+      width: 170px
+	
+  /* --- ROMBO --- */
+  .rombo-blue-01
+    width: 230px !important
+    height: 230px !important		
+    + .rombo-shadow-01
+      width: 300px !important
+      height: 300px	!important	
+	
+/*--------------------------*/	
+@media (max-width: 580px)
+	
+  h3
+    font-size: 30px
+	
+  h4
+    font-size: 16px
+	
+  /* --- ARTICLES BODY --- */
+  .article-style-01
+    & figure
+      height: 200px
+    & .body
+      max-height: 230px	
+	
+  /*--- GALLERY ---*/
+  .gallery-owl-01
+    & .body
+      $width: 310px
+      max-width: $width
+      height: $width	
+    & .rombo-blue-01
+      width: 90% !important
+      height: 90% !important
+    & .rombo-shadow-01
+      width: 105% !important
+      height: 105% !important		
+
+  /* --- BACKGROUNDS --- */
+  .bgc-azul-01
+    //background-color: $azul-p
+    &:after, &:before
+      height: 1150px
+      background-size: 101% auto
+    &:after
+      height: 100%
+      background-image: none
+      top: 250px
+	
+	
