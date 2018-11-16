@@ -62,8 +62,14 @@
 
 .ms-videogallery-template .ms-thumb-list.ms-dir-h .ms-thumb-frame {
 	width: 214px;
-	height: auto;
+	height: 95px;
 	margin: 10px 10px 0 0;
+}
+
+.ms-videogallery-template .ms-thumb-list.ms-dir-h .ms-thumb-frame img {
+	width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .ms-videogallery-template .ms-thumb-list.ms-dir-v .ms-thumb-frame {

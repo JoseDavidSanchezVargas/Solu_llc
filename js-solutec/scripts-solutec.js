@@ -47,10 +47,15 @@ $(document).ready(function() {
     } else {}
     /*---- END If Mobile ---*/
 
-
-
-
-    $(".btn-menur, .btn-overlay").click(function() {
+    /*---- OPEN MODAL ---*/
+	  if ($('.popup-lb-01').length) {
+    setTimeout(function(){
+       $('.popup-lb-01.close-on').addClass("active-on").removeClass("close-on");
+    }, 1000);
+            }
+	/*---- END OPEN MODAL ---*/
+	
+    $(".btn-menur, .btn-overlay, .btn-close-popup").click(function() {
         if ($("." + $(this).attr("data-id")).hasClass('close-on')) {
             $("." + $(this).attr("data-id")).addClass('active-on').removeClass("close-on");
         } else {
@@ -78,6 +83,16 @@ $(document).ready(function() {
         mobile: true,
         once: true,
     });
+	
+	/* CHANGE URL IFRAME */
+	/*$('.changevid').click(function(){
+		oldFrame = $('#mapframe');
+		oldFrame.remove();
+		newSrc = $(this).attr('href');
+		newFrame = $('<iframe>').attr('src',newSrc).attr('id','video-cont-01');
+		return false;
+	});	*/	  
+		  
 
     /* CARROUSEL */
     var owl_school = $('.owl-01');
@@ -89,8 +104,8 @@ $(document).ready(function() {
         ],
         loop: true,
         dots: false,
-        //autoplay: 4000,
-        items: 1,
+        autoplay: false,
+		items: 1,
         margin: 50,
         smartSpeed: 400,
         autoplayHoverPause: true,
@@ -104,14 +119,27 @@ $(document).ready(function() {
             '<span aria-label="' + 'Next' + '" class="icon-arrow-next"></span>'
         ],
         loop: true,
-        /*autoHeight: true,*/
         dots: false,
-        autoplay: true,
+        autoplay: false,
         items: 1,
         margin: 50,
-        smartSpeed: 400,
         autoplayHoverPause: true,
     });
+	
+    var owl_eventos = $('.owl-eventos');
+    owl_eventos.owlCarousel({ nav: true,
+        navText: [
+            '<span aria-label="' + 'Previous' + '" class="icon-arrow-prev"></span>',
+            '<span aria-label="' + 'Next' + '" class="icon-arrow-next"></span>'
+        ],
+        loop: true,
+        dots: false,
+        autoplay: 4000,
+        items: 1,
+        margin: 50,
+        autoplayHoverPause: true,
+    });	
+	
 
     /* CARROUSEL ICONS CATEGORIAS*/
     var owl_lineas_pro = $('.owl-lineas-productos');
@@ -122,14 +150,12 @@ $(document).ready(function() {
             '<span aria-label="' + 'Next' + '" class="icon-arrow-next"></span>'
         ],
         dots: true,
-        //autoplay: false,
-        autoplayTimeout: 4000,
+        autoplay: false,
 		autoWidth: false,
         mouseDrag: true,
 		margin: 30,
         center: false,
 		rewind: true,
-        smartSpeed: 500,
         touchDrag: true,
         responsive: {
             0: {
@@ -153,10 +179,8 @@ $(document).ready(function() {
         dots: false,
 		margin: 40,
         autoplay: false,
-        autoplayTimeout: 4000,
         mouseDrag: true,
         loop: true,
-        smartSpeed: 500,
         touchDrag: true,
         responsive: {
             0: {
@@ -203,7 +227,7 @@ $(document).ready(function() {
 				});	
 
     /* --- PUNTO SUSPENSIVOS --- */
-    $(".dot-ellipsis").dotdotdot();
+    $(".dot-ellipsis").dotdotdot({after: 'a.btn-primary'});
 
     /* IGUALAR ALTURA CAJAS */
     function equalHeight(group) {
@@ -229,6 +253,18 @@ $(document).ready(function() {
         group.height(tallest);
     }
     equalHeight_2($(".height-same-b"));
+	
+    function equalHeight_3(group) {
+        tallest = 0;
+        group.each(function() {
+            thisHeight = $(this).height();
+            if (thisHeight > tallest) {
+                tallest = thisHeight;
+            }
+        });
+        group.height(tallest);
+    }
+    equalHeight_2($(".height-same-c"));	
 
     /* --- STICK --- */
     $('.obj-stick-01').stickit({
@@ -275,6 +311,16 @@ $(document).ready(function() {
     elementWatcher_3.partiallyExitViewport(function() {
         owl_logos_marcas.trigger('stop.owl.autoplay');
     });	
+	
+	/*var myElement_4 = jQuery('#owl-eventos');
+    var elementWatcher_4 = scrollMonitor.create(myElement_4);
+
+    elementWatcher_4.fullyEnterViewport(function() {
+        owl_eventos.trigger('play.owl.autoplay',[5000]);
+    });
+    elementWatcher_4.partiallyExitViewport(function() {
+        owl_eventos.trigger('stop.owl.autoplay');
+    });	*/	
 		
     /*-- PERSPECTIVE 3D ---*/
     $(".js-tilt").universalTilt({
@@ -451,7 +497,7 @@ function abrir_dms(dms) {
 			declineText: 'No Acepto', //Text on decline/disable button
 			policyButton: true, //Set to true to show Privacy Policy button
 			policyText: 'Ver politicas de privacidad', //Text on Privacy Policy button
-			policyURL: 'politica-privacidad.html', //URL of Privacy Policy
+			policyURL: 'http://www.solutecllc.com/politica-privacidad.html', //URL of Privacy Policy
 			autoEnable: true, //Set to true for cookies to be accepted automatically. Banner still shows
 			acceptOnContinue: false, //Set to true to silently accept cookies when visitor moves to another page
 			expireDays: 60, //Number of days for cookieBar cookie to be stored for

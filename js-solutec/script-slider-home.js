@@ -4,11 +4,12 @@ $(document).ready(function() {
     var swiper = new Swiper('.swiper-container', {
       speed: 1300,
       parallax: true,
+	  preloadImages: false,
       loop: true,
 	  lazy: true, 
-  /*lazy: {
+  lazy: {
     loadPrevNext: true,
-  },*/		
+  },		
 	  clickable: false,
 	  autoplay: {
         delay: 5000,
